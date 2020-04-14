@@ -1,0 +1,49 @@
+<html>
+<link rel="stylesheet" href="styles.css"/>
+
+<body>
+<p>How many days?</p>
+<input id="input-days" value="5"/>
+<button onclick="generate();">Generate</button>
+<div id="forecast"></div>
+
+
+
+</body>
+
+<script>
+var forecast = document.getElementById("forecast");
+
+function generate(){
+var days = document.getElementById("input-days").value;
+var temperatures = [];
+
+for (var index = 0; index < days; index++) {
+temperatures.push(Math.floor(Math.random() * 20));
+}
+
+for (var index = 0; index < temperatures.length; index++){
+ var box = document.createElement("div");
+ var icon = document.createElement("img");
+
+if (temperatures[index] < 10) {
+icon.src = "./images/snow.png";
+} else{
+icon.src = "./images/sun.png";
+}
+box.appendChild(icon);
+
+var day = document.createElement("p");
+day.innerHTML = "Day " + (index + 1);
+box.appendChild(day);
+
+var temperature = document.createElement("p");
+temperature.innerHTML = temperatures[index] + "&deg;";
+box.appendChild(temperature);
+
+forecast.appendChild(box);
+}
+}
+</script>
+
+</html>

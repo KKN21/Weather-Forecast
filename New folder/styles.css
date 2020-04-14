@@ -1,0 +1,9 @@
+img {
+width: 28%;
+}
+
+#forecast {
+background-color: beige;	
+display: flex;	
+}
+
